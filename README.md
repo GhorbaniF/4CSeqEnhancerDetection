@@ -48,3 +48,36 @@ Download the latest version of the pipeline from this git repository using:
    cat *CGATGT*.fq.gz > all_CGATGT.fastq.gz
 ```
 
+- Since our data is already demultiplexed, we have to run the following commands once just for generating /outF/ folder
+
+```
+	Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder=./outF/ --cores 8 --plot --wig
+```
+
+After couple of seconds, we need to stop the process using ctrl+c, and copy our fastq files generated in the previous step to the /outF/FASTQ/ folder. This way, the pipe4C program will use the existing fastq files and does not perform demultiplexing. 
+
+- We finally run the script with our data using the following command:  
+
+```
+	Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder=./outF/ --cores 8 --plot --wig
+```
+
+**Note: We should see the following lines in the terminal if everything works correctly: 
+
+```
+------ Demultiplexing Fastq files based on VPinfo file
+      ### WARNING: File ./outF/FASTQ/all_ACTTGA.fastq.gz exists. continuing with exisiting file.
+      ### WARNING: File ./outF/FASTQ/all_CAGATC.fastq.gz exists. continuing with exisiting file.
+      ### WARNING: File ./outF/FASTQ/all_GATCAG.fastq.gz exists. continuing with exisiting file.
+
+```
+
+
+*** It is importnat to set the position of choromosom correctly in the VPinfo.txt file, otherwise pickC can not visulize the picks. 
+
+*** To set the Y axis of the coverage plots, which are generated in /outF/PLOTS/ folder, you need edit the relevant param at the end of the conf.yml file
+
+*** To generate the pickC plot, you need to add a set of addresses in pickC_analysis.r file, and run it in Rstudio.
+
+
+
