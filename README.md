@@ -2,7 +2,7 @@
 
 Discriotion of pipeline should be added here 
 
-Here you can find the list of projects and repositories that we have used in this project:
+This project has been built on top of the following packages, projects, and repositories:
 
 - pipe4C: https://github.com/deLaatLab/pipe4C
 - pyGenomeTracks: https://github.com/deeptools/pyGenomeTracks
