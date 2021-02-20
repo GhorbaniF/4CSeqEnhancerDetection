@@ -30,19 +30,18 @@ This project has been built on top of the following packages, projects, and repo
   - BSgenome of interest
 - The peakC package available from https://github.com/deWitLab/peakC/.
 
-## Installation
+## Installation Steps
 
-Download the latest version of the pipeline from this git repository using:
+- First, Download the pipe4C and all relevant functionalities:
 
 ```
-    $ wget https://github.com/4CSeqEnhancerDetection/
-    $ unzip master.zip
-    $ cd ./pipe4C-master
+    $ git clone https://github.com/GhorbaniF/4CSeqEnhancerDetection.git
+    $ cd 4CSeqEnhancerDetection
+    $ unzip pipe4C.zip
+    $ cd pipe4C
 ```
 **Note:** the pipe4C.R and functions.R files need to be placed in the same folder. 
 
-
-## Steps
 
 - We used index (e.g., CGATGT) in the reverse primers to seperate diffrent genes in one sequence run. Based on this index we seperated the genes. Since for one index, there is four lanes in the sequencing, we have to combine the fastq files for each index:
 
