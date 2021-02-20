@@ -74,7 +74,7 @@ Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder
 
 ```
 
-- It is importnat to set the position of choromosom correctly in the VPinfo.txt file, otherwise pickC can not visulize the picks. 
+- It is importnat to set the position of choromosom correctly in the VPinfo.txt file, otherwise peakC will not be able to visulize the peaks. 
 
 | expname | spacer | primer | firstenzyme | secondenzyme	| genome	| vpchr	| vppos	| analysis | fastq |
 | :---         | :---:  |     :---:  |     :---: |  :---: |  :---: |  :---: |  :---: |  :---: | :---: |
