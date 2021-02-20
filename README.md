@@ -9,7 +9,8 @@ Discriotion of pipeline should be added here
 
 - A Unix like shell (we used Ubuntu 18.04)
 - Bowtie2 v2.3+ available from http://bowtie-bio.sourceforge.net/bowtie2/.  (we used version 2.3.4.1 64-bit)
-- SAMtools v1.3+ available from http://www.htslib.org/. **note:** The pipeline will produce a sort error when older versions are used. (we used samtools 1.7)
+- SAMtools v1.3+ available from http://www.htslib.org/. 
+   - **note:** The pipeline will produce a sort error when older versions are used. (we used samtools 1.7)
 - R v3.5+ available from https://www.r-project.org/.
 - The following R packages available from CRAN:
   - optparse
