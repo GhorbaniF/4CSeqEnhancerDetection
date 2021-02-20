@@ -2,10 +2,12 @@
 
 Discriotion of pipeline should be added here 
 
-- Pipe4C : https://github.com/deLaatLab/pipe4C
+Here you can find the list of projects and repositories that we have used in this project:
+
+- pipe4C: https://github.com/deLaatLab/pipe4C
+- pyGenomeTracks: https://github.com/deeptools/pyGenomeTracks
 - 
 
-reefer to pipe4C and other repositoris that we have used for this project
 
 ## Citation
 
