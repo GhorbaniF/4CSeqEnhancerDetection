@@ -32,5 +32,5 @@ Download the latest version of the pipeline from this git repository using:
     $ unzip master.zip
     $ cd ./pipe4C-master
 ```
-**note:** the pipe4C.R and functions.R files need to be placed in the same folder. 
+**Note:** the pipe4C.R and functions.R files need to be placed in the same folder. 
 
