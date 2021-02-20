@@ -77,15 +77,13 @@ Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder
 - It is importnat to set the position of choromosom correctly in the VPinfo.txt file, otherwise pickC can not visulize the picks. 
 
 
-| expname     | spacer | primer	            | firstenzyme 	| secondenzyme	| genome	| vpchr	| vppos		| analysis | fastq 	        | 
-| ---------------------------------------------------------------------------------------------------------------------------------- |
+| expname     | spacer | primer	            | firstenzyme 	| secondenzyme	| genome	| vpchr	| vppos		| analysis | fastq 	      | 
 | all_GATCAG  | 0		| TCCAGACAAATAAACATG	| NlaIII		   | DpnII		   | hg19	| 14		| 92573009	| cis	     | all_GATCAG.fq.gz |
 | all_ACTTGA  | 0		| TCCAGACAAATAAACATG	| NlaIII		   | DpnII		   | hg19	| 14		| 92573009	| cis	     | all_ACTTGA.fq.gz |
 | all_CAGATC  | 0		| TCCAGACAAATAAACATG	| NlaIII		   | DpnII		   | hg19	| 14		| 92573009	| cis		  | all_CAGATC.fq.gz |
 
 **Table 1.** example of VPinfo.txt file
 
-<BR>
 
 *** To set the Y axis of the coverage plots, which are generated in /outF/PLOTS/ folder, you need edit the relevant param at the end of the conf.yml file
 
