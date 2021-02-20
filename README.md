@@ -1,9 +1,11 @@
 # 4CSeq Enhancer Detection
 
+Discription of pipeline should be added here 
+
+
 ![4CSeq Enhancer Detection](./imgs/tbp.png)
 
 
-Discriotion of pipeline should be added here 
 
 This project has been built on top of the following packages, projects, and repositories:
 
