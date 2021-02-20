@@ -1,6 +1,6 @@
 # 4CSeq Enhancer Detection
 
-![4CSeq Enhancer Detection](./imgs/graphicalabstract.png)
+![4CSeq Enhancer Detection](./imgs/tbp.png)
 
 
 Discriotion of pipeline should be added here 
