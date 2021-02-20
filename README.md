@@ -2,7 +2,7 @@
 
 Discriotion of pipeline should be added here 
 
-- Pipe4C 
+- Pipe4C : https://github.com/deLaatLab/pipe4C
 - 
 
 reefer to pipe4C and other repositoris that we have used for this project
