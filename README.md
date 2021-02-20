@@ -6,6 +6,7 @@ Discription of pipeline should be added here
 ![4CSeq Enhancer Detection](./imgs/tbp.png)
 
 
+## 
 
 This project has been built on top of the following packages, projects, and repositories:
 
@@ -37,7 +38,9 @@ This project has been built on top of the following packages, projects, and repo
 
 ## Installation Steps
 
-- First, Download the pipe4C and all relevant functionalities:
+### Step1: download the pipeline 
+
+- First, Download all required files and functionalities:
 
 ```
     $ git clone https://github.com/GhorbaniF/4CSeqEnhancerDetection.git
@@ -45,8 +48,10 @@ This project has been built on top of the following packages, projects, and repo
     $ unzip pipe4C.zip
     $ cd pipe4C
 ```
+
 **Note:** the pipe4C.R and functions.R files need to be placed in the same folder. 
 
+### Step2: generating coverage plots and all relevant data to use for data analysis
 
 - We used index (e.g., CGATGT) in the reverse primers to seperate diffrent genes in one sequence run. Based on this index we seperated the genes. Since for one index, there is four lanes in the sequencing, we have to combine the fastq files for each index:
 
@@ -91,7 +96,20 @@ Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder
 
 - To set the Y axis of the coverage plots, which are generated in /outF/PLOTS/ folder, we need to edit the relevant parameters at the end of the conf.yml file
 
+### Step3: peakC to call significant peaks:
+
 - To generate the peakC plot, you need to add a set of addresses in **peakC_analysis.r** file, and run it in Rstudio.
+
+```
+ add the code here 
+```
+
+### Step4: identifing putative enhancers using public data with pygenoumtracks
+
+
+
+##Utilities 
+
 
 
 
