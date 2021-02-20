@@ -2,6 +2,11 @@
 
 Discriotion of pipeline should be added here 
 
+- Pipe4C 
+- 
+
+reefer to pipe4C and other repositoris that we have used for this project
+
 ## Citation
 
 
@@ -33,4 +38,13 @@ Download the latest version of the pipeline from this git repository using:
     $ cd ./pipe4C-master
 ```
 **Note:** the pipe4C.R and functions.R files need to be placed in the same folder. 
+
+
+## Steps
+
+- We used index (e.g., CGATGT) in the reverse primers to seperate diffrent genes in one sequence run. Based on this index we seperated the genes. Since for one index, there is four lanes in the sequencing, we have to combine the fastq files for each index:
+
+```
+   cat *CGATGT*.fq.gz > all_CGATGT.fastq.gz
+```
 
