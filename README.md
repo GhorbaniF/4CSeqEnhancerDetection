@@ -1,7 +1,5 @@
 # 4C-seq-enhancer-detection
 
-# pipe4C - a 4C-seq processing pipeline
-
 Discriotion of pipeline should be added here 
 
 ## Citation
