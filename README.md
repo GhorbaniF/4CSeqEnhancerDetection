@@ -1,4 +1,7 @@
-# 4C-seq-enhancer-detection
+# 4CSeq Enhancer Detection
+
+![4CSeq Enhancer Detection](./imgs/graphicalabstract.png)
+
 
 Discriotion of pipeline should be added here 
 
