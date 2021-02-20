@@ -45,13 +45,13 @@ Download the latest version of the pipeline from this git repository using:
 - We used index (e.g., CGATGT) in the reverse primers to seperate diffrent genes in one sequence run. Based on this index we seperated the genes. Since for one index, there is four lanes in the sequencing, we have to combine the fastq files for each index:
 
 ```
-   cat *CGATGT*.fq.gz > all_CGATGT.fastq.gz
+cat *CGATGT*.fq.gz > all_CGATGT.fastq.gz
 ```
 
 - Since our data is already demultiplexed, we have to run the following commands once just for generating /outF/ folder
 
 ```
-	Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder=./outF/ --cores 8 --plot --wig
+Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder=./outF/ --cores 8 --plot --wig
 ```
 
 After couple of seconds, we need to stop the process using ctrl+c, and copy our fastq files generated in the previous step to the /outF/FASTQ/ folder. This way, the pipe4C program will use the existing fastq files and does not perform demultiplexing. 
@@ -59,7 +59,7 @@ After couple of seconds, we need to stop the process using ctrl+c, and copy our 
 - We finally run the script with our data using the following command:  
 
 ```
-	Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder=./outF/ --cores 8 --plot --wig
+Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder=./outF/ --cores 8 --plot --wig
 ```
 
 **Note: We should see the following lines in the terminal if everything works correctly: 
