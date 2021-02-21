@@ -35,6 +35,7 @@ This project has been built on top of the following packages, projects, and repo
   - genomicAlignments
   - BSgenome of interest
 - The peakC package available from https://github.com/deWitLab/peakC/.
+- pyGenomeTracks package available from https://github.com/deeptools/pyGenomeTracks
 
 ## Installation Steps
 
