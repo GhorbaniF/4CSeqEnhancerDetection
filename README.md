@@ -103,7 +103,7 @@ Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder
 - To generate the peakC plot, you need to add a set of addresses in **peakC_analysis.r** file, and run it in Rstudio. They are including:
   - pipe4CFunctionsFile -> path to the **../pipe4C/functions.R** file
   - FileDirectory -> path to the **../pipe4C/outF/RDS** folder
-  - If you need to change **alphaFDR, qWd, qWr** parameterts for your experiments 
+  - If you need to change **alphaFDR, qWd, qWr** parameters for your experiments, they can be changed in **../pipe4C/functions.R** file (line ~1570, doPeakC function)
   - 
 
 ```
