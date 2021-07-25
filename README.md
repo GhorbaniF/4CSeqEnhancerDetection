@@ -207,7 +207,7 @@ color = orange
 title = ChIP-Seq-H3K4me1
 ```
 
-Then, run the following line in a terminal: 
+Then, open a terminal in the same path and run the following code: 
 
 ```
 pyGenomeTracks --tracks TBP.ini --trackLabelFraction 0.2 --width 38 --dpi 130 --region chr6:169,000,000-171,000,000 -o TBP.png
