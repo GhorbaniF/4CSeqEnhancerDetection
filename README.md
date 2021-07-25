@@ -166,7 +166,6 @@ height = 0.05
 
 [bigwig file test]
 file = ATAC_Seq/ATAC_Seq_GSE138293_SKNSH.macs2.dnase.broad.SPMR.sorted.bw
-# height of the track in cm (optional value)
 height = 2
 color = #0000FF80
 title = ATAC-Seq
@@ -208,4 +207,9 @@ color = orange
 title = ChIP-Seq-H3K4me1
 ```
 
+Then, run the following line in a terminal: 
+
+```
+pyGenomeTracks --tracks TBP.ini --trackLabelFraction 0.2 --width 38 --dpi 130 --region chr6:91,800,000-93,400,000 -o ATXN3.png
+```
 
