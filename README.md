@@ -127,7 +127,7 @@ We mainly use pyGenomeTracks and HICexplorer for visualizing and identifing puta
 
 #### Public data, 
 
-- We downloaded the **Atac-Seq**, **DNA-Seq** and **CHIP-Seq H3K27AC** bigWig files from **NCBI repository***:
+- We downloaded the **Atac-Seq**, **DNA-Seq** and **CHIP-Seq H3K27AC** bigWig files from **NCBI repository**:
    - Atac-Seq bigWig file (GSE138293_SKNSH.macs2.dnase.broad.SPMR.sorted.bw -- ATAC-seq SK-N-SH hg19 -- 506.13 Mb) from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE138293
    
    - DNA-Seq bigWig file (GSM1008585_hg19_wgEncodeOpenChromDnaseSknshSig.bigWig -- 2.94GB) from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM1008585
