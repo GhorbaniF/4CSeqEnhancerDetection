@@ -107,7 +107,7 @@ Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder
   - 
 
 ```
- add the code here 
+ doPeakC <- function(rdsFiles, vpRegion=2e6, wSize=21,alphaFDR=0.05,qWd=1.5,qWr=1,minDist=15e3) 
 ```
 
 ### Step4: identifing putative enhancers using public data with pygenoumtracks
