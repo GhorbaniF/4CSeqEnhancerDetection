@@ -120,18 +120,18 @@ Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder
    - CHIP-Seq H3K27AC file (GSM2664335_SHSY5Y_2.K27ac.rep3.wig.bw -- 54.3 Mb) from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2664335
    
    
-   #### Install pyGenomeTracks and HICexplorer 
-We mainly use pyGenomeTracks and HICexplorer for visualizing and identifing putative enhancers using public data. Please check out the following web pages to obtain information about how to install pyGenomeTracks and HICexplorer and check their main functionalities:
+#### Install pyGenomeTracks and HICexplorer 
+- We mainly use pyGenomeTracks and HICexplorer for visualizing and identifing putative enhancers using public data. Please check out the following web pages to obtain information about how to install pyGenomeTracks and HICexplorer and check their main functionalities:
 
-- PyGenomeTracks:
-	- https://github.com/deeptools/pyGenomeTracks
-	- https://pythonawesome.com/python-module-to-plot-beautiful-and-highly-customizable-genome-browser-tracks/
-	- https://pygenometracks.readthedocs.io/en/latest/content/examples.html#examples-with-hi-c-data
+	- PyGenomeTracks:
+		- https://github.com/deeptools/pyGenomeTracks
+		- https://pythonawesome.com/python-module-to-plot-beautiful-and-highly-customizable-genome-browser-tracks/
+		- https://pygenometracks.readthedocs.io/en/latest/content/examples.html#examples-with-hi-c-data
 
-- HICexplorer (to visualize hic data)
+	- HICexplorer (to visualize hic data)
 
-	- https://hicexplorer.readthedocs.io/en/latest/index.html
-	- https://hicexplorer.readthedocs.io/en/latest/content/installation.html
+		- https://hicexplorer.readthedocs.io/en/latest/index.html
+		- https://hicexplorer.readthedocs.io/en/latest/content/installation.html
 
 
 #### config *.ini file for visualizing all data using pyGenomeTracks: 
