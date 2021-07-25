@@ -125,7 +125,7 @@ We mainly use pyGenomeTracks and HICexplorer for visualizing and identifing puta
 	- https://hicexplorer.readthedocs.io/en/latest/content/installation.html
 
 
-#### Public data, 
+#### Downloading Public Dataset: 
 
 - We downloaded the **Atac-Seq**, **DNA-Seq** and **CHIP-Seq H3K27AC** bigWig files from **NCBI repository**:
    - Atac-Seq bigWig file (GSE138293_SKNSH.macs2.dnase.broad.SPMR.sorted.bw -- ATAC-seq SK-N-SH hg19 -- 506.13 Mb) from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE138293
@@ -136,7 +136,7 @@ We mainly use pyGenomeTracks and HICexplorer for visualizing and identifing puta
 
 
 
-##Utilities 
+#### config *.ini file for visualizing pyGenomeTracks: 
 
 
 
