@@ -136,8 +136,76 @@ We mainly use pyGenomeTracks and HICexplorer for visualizing and identifing puta
 
 
 
-#### config *.ini file for visualizing pyGenomeTracks: 
+#### config *.ini file for visualizing all data using pyGenomeTracks: 
 
+First, we need to create a TBP.ini file containing the following information:
 
+```
+[bedgraph]
+file = TBP/TBP.bedgraph
+color = red
+height = 4
+title =  4C-Seq
+#rasterize = true
+min_value = 0
+max_value = 150
+use_middle = true
+
+[spacer]
+
+#### peacks visualization 
+[narrow]
+file = TBP/TBP_alphaFDR_0.05_qwr_1.bed
+height = 1
+type = box
+color = black
+#title = Peaks
+
+[spacer]
+height = 0.05
+
+[bigwig file test]
+file = ATAC_Seq/ATAC_Seq_GSE138293_SKNSH.macs2.dnase.broad.SPMR.sorted.bw
+# height of the track in cm (optional value)
+height = 2
+color = #0000FF80
+title = ATAC-Seq
+min_value = 0
+max_value = 0.5
+
+[spacer]
+[bigwig file test]
+file = ATAC_Seq/Filtered.sortedByCoord.minMQ4.coverage.bw
+height = 2
+color = pink
+title = ATAC-Seq
+min_value = 0
+max_value = 10
+
+[spacer]
+[bigwig file test]
+file = DNA_Seq/ENCFF093ZBZ_encode.bw
+height = 2
+color = green
+title = DNase-Seq
+min_value = 0
+max_value = 0.5
+
+[spacer]
+[bigwig file test]
+file = CHIP_Seq/Chip_seq_GSM2664335_SHSY5Y_2.K27ac.rep3.wig.bw
+height = 2
+color = black
+title = ChIP-Seq-H3K27ac
+min_value = 0
+max_value = 10
+
+[spacer]
+[bigwig file test]
+file = CHIP_Seq/CHIP_seq_H3K4ME1_sushi.bw
+height = 2
+color = orange
+title = ChIP-Seq-H3K4me1
+```
 
 
