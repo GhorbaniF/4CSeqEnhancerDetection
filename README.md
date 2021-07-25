@@ -101,7 +101,10 @@ Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder
 ### Step3: peakC to call significant peaks:
 
 - To generate the peakC plot, you need to add a set of addresses in **peakC_analysis.r** file, and run it in Rstudio. They are including:
-  - FileDirectory: 
+  - pipe4CFunctionsFile -> path to the **../pipe4C/functions.R** file
+  - FileDirectory -> path to the **../pipe4C/outF/RDS** folder
+  - If you need to change **alphaFDR, qWd, qWr** parameterts for your experiments 
+  - 
 
 ```
  add the code here 
