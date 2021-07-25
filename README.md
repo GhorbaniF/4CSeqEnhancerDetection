@@ -12,7 +12,6 @@ This project has been built on top of the following packages, projects, and repo
 
 - pipe4C: https://github.com/deLaatLab/pipe4C
 - pyGenomeTracks: https://github.com/deeptools/pyGenomeTracks
-- 
 
 
 ## Citation
