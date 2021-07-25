@@ -66,7 +66,7 @@ cat *CGATGT*.fq.gz > all_CGATGT.fastq.gz
 Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder=./outF/ --cores 8 --plot --wig
 ```
 
-After couple of seconds, we need to stop the process using ctrl+c, and copy our fastq files generated in the previous step to the /outF/FASTQ/ folder. This way, the pipe4C program will use the existing fastq files and does not perform demultiplexing. 
+After couple of seconds, we need to stop the process using ctrl+c, and copy our fastq files, generated in the previous step, to the /outF/FASTQ/ folder. This way, the pipe4C program will use the existing fastq files and does not perform demultiplexing. 
 
 - We finally run the script with our data using the following command:  
 
@@ -95,11 +95,13 @@ Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder
 | all_ACTTGA   | 0 | TCCAGACAAATAAACATG | NlaIII    | DpnII		   | hg19	| 14		| 92573009	| cis	     | all_ACTTGA.fq.gz |
 | all_CAGATC   | 0 | TCCAGACAAATAAACATG | NlaIII	 | DpnII		   | hg19	| 14		| 92573009	| cis		  | all_CAGATC.fq.gz |
 
+- You can adjust 4C prameters in conf.yml file based on your experimental setup (e.g., genomes can be mm9, mm10, hg19, hg38)
 - To set the Y axis of the coverage plots, which are generated in /outF/PLOTS/ folder, we need to edit the relevant parameters at the end of the conf.yml file
 
 ### Step3: peakC to call significant peaks:
 
-- To generate the peakC plot, you need to add a set of addresses in **peakC_analysis.r** file, and run it in Rstudio.
+- To generate the peakC plot, you need to add a set of addresses in **peakC_analysis.r** file, and run it in Rstudio. They are including:
+  - FileDirectory: 
 
 ```
  add the code here 
