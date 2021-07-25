@@ -111,7 +111,17 @@ Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder
 
 ### Step4: identifing putative enhancers using public data with pygenoumtracks
 
-We mainly use pyGenomeTracks and HICexplorer for visualizing and identifing putative enhancers using public data. Please check out the following web pages to obtain information about how to install it and what are the main functionalities:
+#### Downloading Public Dataset: 
+- We downloaded the **Atac-Seq**, **DNA-Seq** and **CHIP-Seq H3K27AC** bigWig files from **NCBI repository**:
+   - Atac-Seq bigWig file (GSE138293_SKNSH.macs2.dnase.broad.SPMR.sorted.bw -- ATAC-seq SK-N-SH hg19 -- 506.13 Mb) from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE138293
+   
+   - DNA-Seq bigWig file (GSM1008585_hg19_wgEncodeOpenChromDnaseSknshSig.bigWig -- 2.94GB) from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM1008585
+
+   - CHIP-Seq H3K27AC file (GSM2664335_SHSY5Y_2.K27ac.rep3.wig.bw -- 54.3 Mb) from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2664335
+   
+   
+   #### Install pyGenomeTracks and HICexplorer 
+We mainly use pyGenomeTracks and HICexplorer for visualizing and identifing putative enhancers using public data. Please check out the following web pages to obtain information about how to install pyGenomeTracks and HICexplorer and check their main functionalities:
 
 - PyGenomeTracks:
 	- https://github.com/deeptools/pyGenomeTracks
@@ -122,17 +132,6 @@ We mainly use pyGenomeTracks and HICexplorer for visualizing and identifing puta
 
 	- https://hicexplorer.readthedocs.io/en/latest/index.html
 	- https://hicexplorer.readthedocs.io/en/latest/content/installation.html
-
-
-#### Downloading Public Dataset: 
-
-- We downloaded the **Atac-Seq**, **DNA-Seq** and **CHIP-Seq H3K27AC** bigWig files from **NCBI repository**:
-   - Atac-Seq bigWig file (GSE138293_SKNSH.macs2.dnase.broad.SPMR.sorted.bw -- ATAC-seq SK-N-SH hg19 -- 506.13 Mb) from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE138293
-   
-   - DNA-Seq bigWig file (GSM1008585_hg19_wgEncodeOpenChromDnaseSknshSig.bigWig -- 2.94GB) from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM1008585
-
-   - CHIP-Seq H3K27AC file (GSM2664335_SHSY5Y_2.K27ac.rep3.wig.bw -- 54.3 Mb) from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2664335
-
 
 
 #### config *.ini file for visualizing all data using pyGenomeTracks: 
