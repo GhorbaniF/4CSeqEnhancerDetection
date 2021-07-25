@@ -139,19 +139,16 @@ Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder
 First, we need to create a TBP.ini file containing the following information:
 
 ```
-[bedgraph]
-file = TBP/TBP.bedgraph
+[bigwig file test]
+file = TBP/output.bw
 color = red
 height = 4
-title =  4C-Seq
-#rasterize = true
+title = 4C-Seq 
 min_value = 0
-max_value = 150
-use_middle = true
+max_value = 1000
 
 [spacer]
 
-#### peacks visualization 
 [narrow]
 file = TBP/TBP_alphaFDR_0.05_qwr_1.bed
 height = 1
@@ -169,15 +166,7 @@ color = #0000FF80
 title = ATAC-Seq
 min_value = 0
 max_value = 0.5
-
-[spacer]
-[bigwig file test]
-file = ATAC_Seq/Filtered.sortedByCoord.minMQ4.coverage.bw
-height = 2
-color = pink
-title = ATAC-Seq
-min_value = 0
-max_value = 10
+#grid = 1
 
 [spacer]
 [bigwig file test]
@@ -186,11 +175,11 @@ height = 2
 color = green
 title = DNase-Seq
 min_value = 0
-max_value = 0.5
+max_value = 0.2
 
 [spacer]
 [bigwig file test]
-file = CHIP_Seq/Chip_seq_GSM2664335_SHSY5Y_2.K27ac.rep3.wig.bw
+file = CHIP_Seq/ENCFF712CGL_encode_H3K27ac.bw
 height = 2
 color = black
 title = ChIP-Seq-H3K27ac
@@ -199,10 +188,45 @@ max_value = 10
 
 [spacer]
 [bigwig file test]
-file = CHIP_Seq/CHIP_seq_H3K4ME1_sushi.bw
+file = CHIP_Seq/ENCFF545HWA_encode_H3K4ME1.bw
 height = 2
-color = orange
+color = black2
 title = ChIP-Seq-H3K4me1
+min_value = 0
+max_value = 10
+
+
+[spacer]
+
+[vlines]
+file = TBP/peacks_TBP.bed
+type = vlines
+line_width = 1
+
+[vlines]
+file = TBP/TBP3.bed
+type = vlines
+line_width = 1
+[spacer]
+#### peacks visualization 
+[narrow]
+file = TBP/intersect_TBP.bed
+height = 1
+type = box
+color = brown
+title = Intersect of peaks
+[spacer]
+
+[genes]
+file = genome_genes_hg19/UCSC_exons_modif_canonical.bed
+height = 5
+#title = genes
+fontsize = 10
+file_type = bed
+gene_rows = 10
+
+[x-axis]
+fontsize = 16
 ```
 
 Then, open a terminal in the same path and run the following code: 
