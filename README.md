@@ -1,6 +1,11 @@
-# 4CSeq Enhancer Detection
+# 4CSeq Putative Enhancers (PutE) Detection
 
-Discription of pipeline should be added here 
+To identify the Putative Enhancers (PutE) of four genes (ATXN1, ATXN3, TBP and ITPR1) in the human cerebellum, we used the following workflow: 
+(I) Circularized chromosome conformation capture sequencing (4C-seq) on human cerebellum to capture genomic regions interacting with the promoters of the four  genes; 
+(II) Peak calling with "PeakC" package to identify cis-genomic regions significantly interacting with the gene promoters (4C-contact peaks); 
+(III) Annotating the 4C-contact peaks using publicly available data sets to identify Putative Enhancers (PutE); 
+
+An example of the analyzed data for the TBP gene can be seen below.
 
 
 ![4CSeq Enhancer Detection](./imgs/tbp.png)
