@@ -1,4 +1,4 @@
-# 4CSeq Putative Enhancers (PutE) Detection
+Putative Enhancers (PutE) Detection
 
 To identify the Putative Enhancers (PutE) of four genes (ATXN1, ATXN3, TBP and ITPR1) in the human cerebellum, we used the following workflow: 
 (I) Circularized chromosome conformation capture sequencing (4C-seq) on human cerebellum to capture genomic regions interacting with the promoters of the four  genes; 
@@ -6,17 +6,16 @@ To identify the Putative Enhancers (PutE) of four genes (ATXN1, ATXN3, TBP and I
 (III) Annotating the 4C-contact peaks using publicly available data sets to identify Putative Enhancers (PutE); 
 
 An example of the analyzed data for the TBP gene can be seen below.
+![image](https://user-images.githubusercontent.com/25032978/191241838-03e62dfc-0479-4ea4-a4f2-ca11e53ea84e.png)
 
-
-![4CSeq Enhancer Detection](./imgs/tbp.png)
 
 
 ## 
 
-This project has been built on top of the following packages, projects, and repositories:
+This project has been built based on the two main following GitHub repositories:
 
-- pipe4C: https://github.com/deLaatLab/pipe4C
-- pyGenomeTracks: https://github.com/deeptools/pyGenomeTracks
+- pipe4C: https://github.com/deLaatLab/pipe4C (Krijger, Peter HL, et al. "4C-seq from beginning to end: a detailed protocol for sample preparation and data analysis." Methods 170 (2020): 17-32)
+- pyGenomeTracks: https://github.com/deeptools/pyGenomeTracks (Lopez-Delisle, Lucille, et al. "pyGenomeTracks: reproducible plots for multivariate genomic data sets." Bioinformatics (2021))
 
 
 ## Citation
@@ -45,7 +44,7 @@ This project has been built on top of the following packages, projects, and repo
 
 ### Step1: download the pipeline 
 
-- First, Download all required files and functionalities:
+- Download all required files and functionalities:
 
 ```
     $ git clone https://github.com/GhorbaniF/4CSeqEnhancerDetection.git
@@ -58,19 +57,21 @@ This project has been built on top of the following packages, projects, and repo
 
 ### Step2: generating coverage plots and all relevant data to use for data analysis
 
-- We used index (e.g., CGATGT) in the reverse primers to seperate diffrent genes in one sequence run. Based on this index we seperated the genes. Since for one index, there is four lanes in the sequencing, we have to combine the fastq files for each index:
+-Since the four genes were pooled in one sequencing run (Illumina Nextseq500 using Mid-Output v2 kit with single-read run and 75bp read length), the four genes were first demultiplexed based on the forward primers to obtain the sequencing data for each gene (we received the data demultipexed from our service center, so it is not addressed here). 
+-For each gene we have three replicates with three different indexes in the reverse primer which we use to seperate the three replicates of each gene. In this example we used index (e.g., CGATGT) in the reverse primer to seperate one of the replicates of the TBP gene from the other two. However, for each index there is four lanes which we have to combine the fastq files:
 
 ```
 cat *CGATGT*.fq.gz > all_CGATGT.fastq.gz
 ```
 
-- Since our data is already demultiplexed, we have to run the following commands once just for generating /outF/ folder
+-We do the same for the other two replicates (            )
+- Since our data was already demultiplexed and was not considered in our pipeline, we have to run the following commands once just for generating /outF/ folder
 
 ```
 Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder=./outF/ --cores 8 --plot --wig
 ```
 
-After couple of seconds, we need to stop the process using ctrl+c, and copy our fastq files, generated in the previous step, to the /outF/FASTQ/ folder. This way, the pipe4C program will use the existing fastq files and does not perform demultiplexing. 
+After couple of seconds, we need to stop the process using ctrl+c, and copy our fastq files, generated in the previous step, to the /outF/FASTQ/ folder. This way, the pipe4C program will use the existing fastq files and does not perform demultiplexing (because it was already demultiplexed). 
 
 - We finally run the script with our data using the following command:  
 
@@ -90,7 +91,7 @@ Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder
 
 ```
 
-- It is importnat to set the position of choromosom correctly in the VPinfo.txt file, otherwise peakC will not be able to visulize the peaks.
+- It is important to set the position of the choromosome correctly in the VPinfo.txt file, otherwise peakC will not be able to visulize the peaks.
 
 **Table 1.** example of VPinfo.txt file
 | expname | spacer | primer | firstenzyme | secondenzyme	| genome	| vpchr	| vppos	| analysis | fastq |
@@ -101,6 +102,8 @@ Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder
 
 - You can adjust 4C prameters in conf.yml file based on your experimental setup (e.g., genomes can be mm9, mm10, hg19, hg38)
 - To set the Y axis of the coverage plots, which are generated in /outF/PLOTS/ folder, we need to edit the relevant parameters at the end of the conf.yml file
+
+With these steps we will generate the coverage plot for TBP using the three replicates:
 
 ### Step3: peakC to call significant peaks:
 
