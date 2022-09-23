@@ -64,8 +64,8 @@ This project has been built based on the two main following GitHub repositories:
 cat *CGATGT*.fq.gz > all_CGATGT.fastq.gz
 ```
 
--We do the same for the other two replicates (            )
-- Since our data was already demultiplexed and was not considered in our pipeline, we have to run the following commands once just for generating /outF/ folder
+-We do the same for the other two replicates (ATCACG and TTAGGC)
+- Since our data was already demultiplexed and is not considered in our pipeline, we have to run the following commands once just for generating /outF/ folder
 
 ```
 Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder=./outF/ --cores 8 --plot --wig
@@ -85,29 +85,30 @@ Rscript pipe4C.R --vpFile=./example/VPinfo.txt --fqFolder=./example/ --outFolder
 
 ```
 ------ Demultiplexing Fastq files based on VPinfo file
-      ### WARNING: File ./outF/FASTQ/all_ACTTGA.fastq.gz exists. continuing with exisiting file.
-      ### WARNING: File ./outF/FASTQ/all_CAGATC.fastq.gz exists. continuing with exisiting file.
-      ### WARNING: File ./outF/FASTQ/all_GATCAG.fastq.gz exists. continuing with exisiting file.
+      ### WARNING: File ./outF/FASTQ/all_CGATGT.fastq.gz exists. continuing with exisiting file.
+      ### WARNING: File ./outF/FASTQ/all_ATCACG.fastq.gz exists. continuing with exisiting file.
+      ### WARNING: File ./outF/FASTQ/all_TTAGGC.fastq.gz exists. continuing with exisiting file.
 
 ```
 
-- It is important to set the position of the choromosome correctly in the VPinfo.txt file, otherwise peakC will not be able to visulize the peaks.
+- It is important to set the position of the choromosome correctly in the VPinfo.txt file, otherwise peakC will not be able to visualize the peaks.
 
 **Table 1.** example of VPinfo.txt file
 | expname | spacer | primer | firstenzyme | secondenzyme	| genome	| vpchr	| vppos	| analysis | fastq |
 | :---         | :---:  |     :---:  |     :---: |  :---: |  :---: |  :---: |  :---: |  :---: | :---: |
-| all_GATCAG   | 0 | TCCAGACAAATAAACATG | NlaIII    | DpnII		   | hg19	| 14		| 92573009	| cis	     | all_GATCAG.fq.gz |
-| all_ACTTGA   | 0 | TCCAGACAAATAAACATG | NlaIII    | DpnII		   | hg19	| 14		| 92573009	| cis	     | all_ACTTGA.fq.gz |
-| all_CAGATC   | 0 | TCCAGACAAATAAACATG | NlaIII	 | DpnII		   | hg19	| 14		| 92573009	| cis		  | all_CAGATC.fq.gz |
+| all_CGATGT   | 0 | ATCCGCTTCTTCTCCATG  | NlaIII    | DpnII		   | hg19	| 6		| 170863380	| cis	     | all_CGATGT.fq.gz |
+| all_ATCACG   | 0 | ATCCGCTTCTTCTCCATG  | NlaIII    | DpnII		   | hg19	| 6		| 170863380	| cis	     | all_ATCACG.fq.gz |
+| all_TTAGGC   | 0 | ATCCGCTTCTTCTCCATG  | NlaIII	 | DpnII		   | hg19	| 6		| 170863380	| cis		  | all_TTAGGC.fq.gz |
 
-- You can adjust 4C prameters in conf.yml file based on your experimental setup (e.g., genomes can be mm9, mm10, hg19, hg38)
+- You can adjust 4C parameters in conf.yml file based on your experimental setup (e.g., genomes can be mm9, mm10, hg19, hg38)
 - To set the Y axis of the coverage plots, which are generated in /outF/PLOTS/ folder, we need to edit the relevant parameters at the end of the conf.yml file
 
-With these steps we will generate the coverage plot for TBP using the three replicates:
+With these steps we will generate the coverage plot and data for each of the replicates of TBP. In the next step, the data generated from the three replicates are used together to generate one plot for TBP. 
+
 
 ### Step3: peakC to call significant peaks:
 
-- To generate the peakC plot, you need to add a set of addresses in **peakC_analysis.r** file, and run it in Rstudio. The parameters are including:
+- To generate the peakC plot, you need to add a set of addresses in **peakC_analysis.r** file, and run it in Rstudio. The parameters include:
   - pipe4CFunctionsFile -> path to the **../pipe4C/functions.R** file
   - FileDirectory -> path to the **../pipe4C/outF/RDS** folder
   - If you need to change **alphaFDR, qWd, qWr** parameters for your experiments, they can be changed in **../pipe4C/functions.R** file (line ~1570, doPeakC function)
@@ -116,20 +117,22 @@ With these steps we will generate the coverage plot for TBP using the three repl
 ```
  doPeakC <- function(rdsFiles, vpRegion=2e6, wSize=21,alphaFDR=0.05,qWd=1.5,qWr=1,minDist=15e3) 
 ```
+In the case of TBP, the generated plot:
 
-### Step4: identifing putative enhancers using public data with pygenoumtracks
+![image](https://user-images.githubusercontent.com/25032978/191950645-ce737028-c55a-41f2-91d5-841061a71f79.png)
+
+
+### Step4: identifying putative enhancers using public data with pygenometracks
 
 #### Downloading Public Dataset: 
-- We downloaded the **Atac-Seq**, **DNA-Seq** and **CHIP-Seq H3K27AC** bigWig files from **NCBI repository**:
-   - Atac-Seq bigWig file (GSE138293_SKNSH.macs2.dnase.broad.SPMR.sorted.bw -- ATAC-seq SK-N-SH hg19 -- 506.13 Mb) from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE138293
-   
-   - DNA-Seq bigWig file (GSM1008585_hg19_wgEncodeOpenChromDnaseSknshSig.bigWig -- 2.94GB) from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM1008585
-
-   - CHIP-Seq H3K27AC file (GSM2664335_SHSY5Y_2.K27ac.rep3.wig.bw -- 54.3 Mb) from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2664335
-   
+- We downloaded the **ATAC-Seq**, **DNA-Seq**, **CHiP-Seq H3K27AC** and **HiC-Seq** bigWig files for human cerebellar tissue:
+ATAC-seq (GSE101912)
+ChiP-seq for H3K27ac (GSM1119154)
+DNase-seq (GSM736538) 
+HiC-seq (ENCFF198DDF) 
    
 #### Install pyGenomeTracks and HICexplorer 
-- We mainly use pyGenomeTracks and HICexplorer for visualizing and identifing putative enhancers using public data. Please check out the following web pages to obtain information about how to install pyGenomeTracks and HICexplorer and check their main functionalities:
+- We mainly use pyGenomeTracks and HICexplorer for visualizing and identifying putative enhancers using public data. Please check out the following web pages to obtain information about how to install pyGenomeTracks and HICexplorer and check their main functionalities:
 
 	- PyGenomeTracks:
 		- https://github.com/deeptools/pyGenomeTracks
@@ -168,7 +171,7 @@ color = black
 height = 0.05
 
 [bigwig file test]
-file = ATAC_Seq/ATAC_Seq_GSE138293_SKNSH.macs2.dnase.broad.SPMR.sorted.bw
+file = ATAC_Seq/GSE101912.bw
 height = 2
 color = #0000FF80
 title = ATAC-Seq
@@ -178,7 +181,7 @@ max_value = 0.5
 
 [spacer]
 [bigwig file test]
-file = DNA_Seq/ENCFF093ZBZ_encode.bw
+file = DNA_Seq/GSM736538.bw
 height = 2
 color = green
 title = DNase-Seq
@@ -187,19 +190,10 @@ max_value = 0.2
 
 [spacer]
 [bigwig file test]
-file = CHIP_Seq/ENCFF712CGL_encode_H3K27ac.bw
+file = CHIP_Seq/GSM1119154.bw
 height = 2
 color = black
 title = ChIP-Seq-H3K27ac
-min_value = 0
-max_value = 10
-
-[spacer]
-[bigwig file test]
-file = CHIP_Seq/ENCFF545HWA_encode_H3K4ME1.bw
-height = 2
-color = black2
-title = ChIP-Seq-H3K4me1
 min_value = 0
 max_value = 10
 
@@ -207,7 +201,7 @@ max_value = 10
 [spacer]
 
 [vlines]
-file = TBP/peacks_TBP.bed
+file = TBP/peaks_TBP.bed
 type = vlines
 line_width = 1
 
@@ -216,7 +210,7 @@ file = TBP/TBP3.bed
 type = vlines
 line_width = 1
 [spacer]
-#### peacks visualization 
+#### peaks visualization 
 [narrow]
 file = TBP/intersect_TBP.bed
 height = 1
@@ -242,4 +236,7 @@ Then, open a terminal in the same path and run the following code:
 ```
 pyGenomeTracks --tracks TBP.ini --trackLabelFraction 0.2 --width 38 --dpi 130 --region chr6:169,000,000-171,000,000 -o TBP.png
 ```
+
+The final plot for TBP will look like this:
+![TBP](https://user-images.githubusercontent.com/25032978/191953635-d61c7b5d-7c22-4ba5-97e4-79a506eb661b.png)
 
