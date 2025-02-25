@@ -1,4 +1,4 @@
-Putative Enhancers (PutE) Detection
+Putative Enhancers (PutE) Detection in human cerebellum tissue
 
 To identify the Putative Enhancers (PutE) of four genes (ATXN1, ATXN3, TBP and ITPR1) in the human cerebellum, we used the following workflow: 
 (I) Circularized chromosome conformation capture sequencing (4C-seq) on human cerebellum to capture genomic regions interacting with the promoters of the four  genes; 
