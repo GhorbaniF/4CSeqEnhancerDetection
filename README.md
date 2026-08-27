@@ -19,7 +19,7 @@ This project has been built based on the two main following GitHub repositories:
 
 
 ## Citation
-
+Ghorbani, Fatemeh, et al. "Identification and copy number variant analysis of enhancer regions of genes causing spinocerebellar ataxia." International Journal of Molecular Sciences 25.20 (2024): 11205.
 
 ## Prerequisites
 
