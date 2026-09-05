@@ -75,7 +75,7 @@ Ghorbani, Fatemeh, et al. "Identification and copy number variant analysis of en
 ### Step2: generating coverage plots and all relevant data to use for data analysis
 
 -Since the four genes were pooled in one sequencing run (Illumina Nextseq500 using Mid-Output v2 kit with single-read run and 75bp read length), the four genes were first demultiplexed based on the forward primers to obtain the sequencing data for each gene (we received the data demultiplexed from our service center, so it is not addressed here). 
--For each gene we have three replicates with three different indexes in the reverse primer which we use to seperate the three replicates of each gene. In this example we used index (e.g., CGATGT) in the reverse primer to seperate one of the replicates of the TBP gene from the other two. However, for each index there is four lanes which we have to combine the fastq files:
+-For each gene we have three replicates with three different indexes in the reverse primer which we use to separate the three replicates of each gene. In this example we used index (e.g., CGATGT) in the reverse primer to separate one of the replicates of the TBP gene from the other two. However, for each index there is four lanes which we have to combine the fastq files:
 
 ```
 cat *CGATGT*.fq.gz > all_CGATGT.fastq.gz
