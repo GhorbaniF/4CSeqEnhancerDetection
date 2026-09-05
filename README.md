@@ -1,24 +1,41 @@
-Putative Enhancers (PutE) Detection in human cerebellum tissue
+# 4C-seq Putative Enhancer Detection
 
-To identify the Putative Enhancers (PutE) of four genes (ATXN1, ATXN3, TBP and ITPR1) in the human cerebellum, we used the following workflow: 
-(I) Circularized chromosome conformation capture sequencing (4C-seq) on human cerebellum to capture genomic regions interacting with the promoters of the four  genes; 
-(II) Peak calling with "PeakC" package to identify cis-genomic regions significantly interacting with the gene promoters (4C-contact peaks); 
-(III) Annotating the 4C-contact peaks using publicly available data sets to identify Putative Enhancers (PutE); 
+This repository contains the analysis workflow used to identify putative enhancer regions interacting with the promoters of four genes (*ATXN1*, *ATXN3*, *TBP*, and *ITPR1*) in human cerebellum tissue using circularized chromosome conformation capture sequencing (4C-seq).
 
-An example of the analyzed data for the TBP gene can be seen below.
+## Workflow
+
+The analysis consists of three main steps:
+
+1. **4C-seq processing** — processing of 4C-seq data and generation of genomic interaction profiles using `pipe4C`.
+2. **Peak detection** — identification of genomic regions showing significant interactions with the gene promoters using `peakC`.
+3. **Genomic annotation and visualization** — annotation and visualization of 4C-contact regions using publicly available genomic datasets and `pyGenomeTracks`.
+
+An example of the analysis for the *TBP* locus is shown below.
+
+## Repository contents
+
+The repository contains files used for the 4C-seq analysis, including:
+
+- `pipe4C.zip` — 4C-seq processing workflow
+- `TBP.ini` — example configuration for visualization of the *TBP* locus
+- `genome_genes_hg19/` — genomic annotation files
+
+## Software and resources
+
+The analysis builds on the following open-source tools:
+
+- **pipe4C** — processing and analysis of 4C-seq data  
+  Krijger et al. *4C-seq from beginning to end: a detailed protocol for sample preparation and data analysis*. Methods (2020).
+
+- **peakC** — identification of significant 4C interaction peaks.
+
+- **pyGenomeTracks** — visualization of genomic datasets  
+  Lopez-Delisle et al. *pyGenomeTracks: reproducible plots for multivariate genomic data sets*. Bioinformatics (2021).
+  
 ![image](https://user-images.githubusercontent.com/25032978/191241838-03e62dfc-0479-4ea4-a4f2-ca11e53ea84e.png)
 
 
-
-## 
-
-This project has been built based on the two main following GitHub repositories:
-
-- pipe4C: https://github.com/deLaatLab/pipe4C (Krijger, Peter HL, et al. "4C-seq from beginning to end: a detailed protocol for sample preparation and data analysis." Methods 170 (2020): 17-32)
-- pyGenomeTracks: https://github.com/deeptools/pyGenomeTracks (Lopez-Delisle, Lucille, et al. "pyGenomeTracks: reproducible plots for multivariate genomic data sets." Bioinformatics (2021))
-
-
-## Citation
+# Citation
 Ghorbani, Fatemeh, et al. "Identification and copy number variant analysis of enhancer regions of genes causing spinocerebellar ataxia." International Journal of Molecular Sciences 25.20 (2024): 11205.
 
 ## Prerequisites
